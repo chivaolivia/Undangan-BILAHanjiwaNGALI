@@ -1,0 +1,150 @@
+/* ===== STORY SECTION ===== */
+.story {
+    position: relative;
+    padding: 5rem 1.5rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.story h2 {
+    text-align: center;
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    color: #5c3d2e;
+    margin-bottom: 0.5rem;
+}
+
+.story > p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Timeline wrapper */
+.story_timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Garis vertikal di tengah */
+.story_timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #d4a574, #c8956c, #d4a574, transparent);
+    transform: translateX(-50%);
+}
+
+/* Tiap item cerita */
+.story_item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: calc(50% + 2.5rem);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.story_item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: calc(50% + 2.5rem);
+}
+
+/* Dot di garis */
+.story_item::after {
+    content: '♥';
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%);
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+    border: 2px solid #d4a574;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: #d4a574;
+    z-index: 1;
+    line-height: 2rem;
+    text-align: center;
+}
+
+/* Card konten */
+.story_content {
+    background: #fdf8f3;
+    border: 1px solid #ecdcc8;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    max-width: 320px;
+    box-shadow: 0 4px 15px rgba(196, 149, 108, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story_content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(196, 149, 108, 0.2);
+}
+
+.story_content h4 {
+    font-family: 'Sacramento', cursive;
+    font-size: 1.5rem;
+    color: #5c3d2e;
+    margin-bottom: 0.4rem;
+}
+
+.story_content p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #7a6655;
+    line-height: 1.7;
+}
+
+/* Dekorasi hati melayang */
+.story .bx-heart {
+    position: absolute;
+    color: #f5dece;
+    animation: floatHeart 6s ease-in-out infinite;
+    pointer-events: none;
+}
+.story .bx-heart:nth-of-type(1) { font-size: 3rem; top: 5%; left: 5%; animation-delay: 0s; }
+.story .bx-heart:nth-of-type(2) { font-size: 2rem; top: 20%; right: 8%; animation-delay: 1.5s; }
+.story .bx-heart:nth-of-type(3) { font-size: 4rem; bottom: 10%; left: 10%; animation-delay: 3s; }
+.story .bx-heart:nth-of-type(4) { font-size: 1.5rem; bottom: 25%; right: 5%; animation-delay: 4.5s; }
+
+@keyframes floatHeart {
+    0%, 100% { transform: translateY(0) rotate(-10deg); opacity: 0.4; }
+    50% { transform: translateY(-20px) rotate(10deg); opacity: 0.8; }
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+    .story_timeline::before {
+        left: 1.25rem;
+    }
+
+    .story_item,
+    .story_item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 3.5rem;
+        padding-right: 0;
+    }
+
+    .story_item::after {
+        left: 1.25rem;
+    }
+
+    .story_content {
+        max-width: 100%;
+    }
+}
