@@ -82,14 +82,20 @@ export const wishas = () => {
             date = `${newDate.days} hari, ${newDate.hours} jam yang lalu`;
         }
 
-        return ` <li data-aos="zoom-in" data-aos-duration="1000">
-                     <div style="background-color: ${data.color}">${data.name.charAt(0).toUpperCase()}</div>
-                     <div>
-                         <h4>${name}</h4>
-                         <p>${date} <br>${data.status}</p>
-                         <p>${data.message}</p>
-                     </div>
-                 </li>`;
+        return `<li data-id="${item.id}" data-aos="zoom-in" data-aos-duration="1000">
+    <div style="background-color: ${item.color}">${item.name.charAt(0).toUpperCase()}</div>
+    <div class="comentar-body">
+        <h4>${name}</h4>
+        <p>${date} <br>${item.status}</p>
+        <p>${item.message}</p>
+        <div class="comment-actions">
+            <button class="like-btn" data-id="${item.id}" data-likes="${item.likes || 0}">
+                <i class='bx bx-heart'></i>
+                <span>${item.likes || 0}</span>
+            </button>
+        </div>
+    </div>
+</li>`;
     };
 
     let lengthComentar;
