@@ -4,8 +4,8 @@ export const data = {
             id: 1,
             name: 'Chiva Olivia Bilah, S.Pd.,S.Kom.,M.Eng',
             child: 'Putri ke 2',
-            father: 'Bapak Letda POM (Purn) Ong Muraza Bilah, S.H.',
-            mother: 'Ibu Yosephiene Marieanna Purukan',
+            father: 'Letda POM (Purn) Ong Muraza Bilah, S.H.',
+            mother: 'Yosephiene Marieanna Purukan',
             image: 'src/assets/images/foto_chiva.jpeg',
 			address: 'Dusun Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta'
 			
@@ -14,8 +14,8 @@ export const data = {
             id: 2,
             name: 'Ngali Winahyu, S.T',
             child: 'Putra ke 2',
-            father: 'Bapak Nasrip',
-            mother: 'Ibu Suwarni',
+            father: 'Nasrip',
+            mother: 'Suwarni',
             image: 'src/assets/images/test.jpeg',
 			address: 'Dusun Toyo, Waruk Kalong, Kec. Kwadungan, Kabupaten Ngawi, Jawa Timur'
         },
