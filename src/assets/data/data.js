@@ -66,7 +66,7 @@ story: [
     },
     {
         title: 'Membuka Pintu Komunikasi',
-        description: 'Di saat yang bersamaan, ribuan kilometer jauhnya, di sebuah sudut ruang kerja, aku Ali duduk tepat di sebelah Om Chiva. Tanpa direncanakan, momen  itu tiba hari itu juga. Foto Chiva ditunjukan kepada Ali  dengan keberanian yang tenang, yang akhirnya membuka pintu komunikasi kami.'
+        description: 'Di saat yang bersamaan, ribuan kilometer jauhnya, di sebuah acara, Ngali duduk tepat di sebelah Om Chiva. Tanpa direncanakan, momen  itu tiba hari itu juga. Foto Chiva ditunjukan kepada Ngali dengan keberanian yang tenang, yang akhirnya membuka pintu komunikasi kami.'
     },
     {
         title: 'Komunikasi dan Ketegasan',
