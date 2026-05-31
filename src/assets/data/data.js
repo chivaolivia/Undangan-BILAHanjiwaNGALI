@@ -6,7 +6,9 @@ export const data = {
             child: 'Putri ke 2',
             father: 'Bapak Letda POM (Purn) Ong Muraza Bilah, S.H.',
             mother: 'Ibu Yosephiene Marieanna Purukan',
-            image: 'src/assets/images/foto_chiva.jpeg'
+            image: 'src/assets/images/foto_chiva.jpeg',
+			address: 'Dusun Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta'
+			
         },
         P: {
             id: 2,
@@ -14,7 +16,8 @@ export const data = {
             child: 'Putra ke 2',
             father: 'Bapak Nasrip',
             mother: 'Ibu Suwarni',
-            image: 'src/assets/images/test.jpeg'
+            image: 'src/assets/images/test.jpeg',
+			address: 'Dusun Toyo, Waruk Kalong, Kec. Kwadungan, Kabupaten Ngawi, Jawa Timur'
         },
         couple: 'src/assets/images/foto_karikatur.png'
     },
@@ -87,7 +90,13 @@ story: [
             icon: 'src/assets/images/bri.png',
             rekening: '155801003444504'
         },
+	
     ],
+address: {
+    name: 'Rumah Mempelai Wanita',
+    detail: 'Dusun Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta',
+    map: 'https://maps.app.goo.gl/PUPUbFor6Z1Kf7D36'
+},
     audio: 'src/assets/audio/wedding.mp3',
     api: 'https://script.google.com/macros/s/AKfycbyt6Ulgbfrmm9pisIlLKnt_GdL-ozqDoaAOozU4csb1I044sZ-QKnQi1YZ1XpUCCdtNWw/exec',
     navbar: [

@@ -31,6 +31,25 @@ export const wishas = () => {
 
         renderElement(data.bank, containerBank, listItemBank);
 
+    containerBank.innerHTML += `
+        <figure data-aos="zoom-in" data-aos-duration="1000" style="display:flex; flex-direction:column; align-items:center; gap:0.5rem;">
+            <i class='bx bxs-map-alt' style="font-size:2.5rem; color:#c4394a;"></i>
+            <figcaption style="text-align:center;">
+                <strong>${data.address.name}</strong><br>
+                ${data.address.detail}
+            </figcaption>
+            <a href="${data.address.map}" target="_blank" style="
+                border: 1px solid #333;
+                padding: 0.4rem 1rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                color: #333;
+                margin-top: 0.5rem;
+            ">
+                <i class='bx bxs-map-alt'></i> Lihat Maps
+            </a>
+        </figure>`;
+
         containerBank.querySelectorAll('button').forEach((button) => {
             button.addEventListener('click', async (e) => {
                 const rekening = e.target.dataset.rekening;
@@ -46,7 +65,7 @@ export const wishas = () => {
                 }
             });
         });
-    };
+       };
 
     const listItemComentar = (data) => {
         const name = formattedName(data.name);

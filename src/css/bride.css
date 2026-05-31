@@ -7,7 +7,7 @@
 }
 
 .bride h2 {
-    font-size: 1rem;
+    font-size: 2rem;
     font-family: var(--arabic);
     font-weight: 400;
 }
@@ -47,9 +47,10 @@
 }
 
 .bride .bride_couple li figure figcaption {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin: 1rem 0;
-    font-family: var(--sacramento);
+    font-family: 'Berkshire Swash', cursive;
+  
 }
 
 .bride .bride_couple span {
@@ -58,7 +59,10 @@
     font-weight: 400;
     margin-top: 1rem;
 }
-
+.bride_address {
+    font-size: 0.9rem;
+    color: #888;
+}
 .bride i, .hadist i, .time a + p + i, .galeri > i {
     font-size: 3rem;
     color: #908d8d;

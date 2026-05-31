@@ -6,7 +6,8 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    background-color: #212529;
+    background-color: #800020;
+    background-image: url('../assets/images/gunungan.png');
     position: fixed;
     top: 0;
     left: 0;
