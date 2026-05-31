@@ -97,7 +97,22 @@ export const wishas = () => {
     </div>
 </li>`;
     };
-
+const bindCommentActions = () => {
+    containerComentar.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const id = btn.dataset.id;
+            let likes = parseInt(btn.dataset.likes) + 1;
+            btn.dataset.likes = likes;
+            btn.querySelector('span').textContent = likes;
+            btn.querySelector('i').className = 'bx bxs-heart';
+            btn.style.color = '#e74c3c';
+            btn.disabled = true;
+            try {
+                await fetch(`${data.api}?action=like&id=${id}&likes=${likes}`);
+            } catch(e) {}
+        });
+    });
+};
     let lengthComentar;
 
     const initialComentar = async () => {
