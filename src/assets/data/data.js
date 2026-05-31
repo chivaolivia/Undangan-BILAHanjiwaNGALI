@@ -94,7 +94,7 @@ story: [
     ],
 address: {
     name: 'Rumah Mempelai Wanita',
-    detail: 'Dusun Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta',
+    detail: 'Jalan Kembang Madurejo Nomor.61, RT. 03, RW. 01, Kembang, Madurejo (Rumah Tingkat), Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta, Kode Pos 55572',
     map: 'https://maps.app.goo.gl/PUPUbFor6Z1Kf7D36'
 },
     audio: 'src/assets/audio/wedding.mp3',
