@@ -31,7 +31,7 @@ export const wishas = () => {
 
         renderElement(data.bank, containerBank, listItemBank);
 
-    containerBank.innerHTML += `
+        containerBank.innerHTML += `
         <figure data-aos="zoom-in" data-aos-duration="1000" style="display:flex; flex-direction:column; align-items:center; gap:0.5rem;">
             <i class='bx bxs-map-alt' style="font-size:2.5rem; color:#c4394a;"></i>
             <figcaption style="text-align:center;">
@@ -65,7 +65,7 @@ export const wishas = () => {
                 }
             });
         });
-       };
+    };
 
     const listItemComentar = (data) => {
         const name = formattedName(data.name);
@@ -82,37 +82,39 @@ export const wishas = () => {
             date = `${newDate.days} hari, ${newDate.hours} jam yang lalu`;
         }
 
-return `<li data-id="${data.id}" data-aos="zoom-in" data-aos-duration="1000">
-    <div style="background-color: ${data.color}">${data.name.charAt(0).toUpperCase()}</div>
-    <div class="comentar-body">
-        <h4>${name}</h4>
-        <p>${date} <br>${data.status}</p>
-        <p>${data.message}</p>
-        <div class="comment-actions">
-            <button class="like-btn" data-id="${data.id}" data-likes="${data.likes || 0}">
-                <i class='bx bx-heart'></i>
-                <span>${data.likes || 0}</span>
-            </button>
-        </div>
-    </div>
-</li>`;
+        return `<li data-id="${data.id}" data-aos="zoom-in" data-aos-duration="1000">
+            <div style="background-color: ${data.color}">${data.name.charAt(0).toUpperCase()}</div>
+            <div class="comentar-body">
+                <h4>${name}</h4>
+                <p>${date} <br>${data.status}</p>
+                <p>${data.message}</p>
+                <div class="comment-actions">
+                    <button class="like-btn" data-id="${data.id}" data-likes="${data.likes || 0}">
+                        <i class='bx bx-heart'></i>
+                        <span>${data.likes || 0}</span>
+                    </button>
+                </div>
+            </div>
+        </li>`;
     };
-const bindCommentActions = () => {
-    containerComentar.querySelectorAll('.like-btn').forEach(btn => {
-        btn.addEventListener('click', async () => {
-            const id = btn.dataset.id;
-            let likes = parseInt(btn.dataset.likes) + 1;
-            btn.dataset.likes = likes;
-            btn.querySelector('span').textContent = likes;
-            btn.querySelector('i').className = 'bx bxs-heart';
-            btn.style.color = '#e74c3c';
-            btn.disabled = true;
-            try {
-                await fetch(`${data.api}?action=like&id=${id}&likes=${likes}`);
-            } catch(e) {}
+
+    const bindCommentActions = () => {
+        containerComentar.querySelectorAll('.like-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.id;
+                let likes = parseInt(btn.dataset.likes) + 1;
+                btn.dataset.likes = likes;
+                btn.querySelector('span').textContent = likes;
+                btn.querySelector('i').className = 'bx bxs-heart';
+                btn.style.color = '#e74c3c';
+                btn.disabled = true;
+                try {
+                    await fetch(`${data.api}?action=like&id=${id}&likes=${likes}`);
+                } catch(e) {}
+            });
         });
-    });
-};
+    };
+
     let lengthComentar;
 
     const initialComentar = async () => {
@@ -135,6 +137,7 @@ const bindCommentActions = () => {
 
             pageNumber.textContent = '1';
             renderElement(comentar.slice(startIndex, endIndex), containerComentar, listItemComentar);
+            bindCommentActions(); // ← dipanggil setelah render
         } catch (error) {
             return `Error : ${error.message}`;
         }
@@ -155,13 +158,11 @@ const bindCommentActions = () => {
 
         try {
             const response = await comentarService.getComentar();
-
             await comentarService.addComentar(comentar);
-
             lengthComentar = response.comentar.length;
-
             peopleComentar.textContent = `${++response.comentar.length} Orang telah mengucapkan`;
             containerComentar.insertAdjacentHTML('afterbegin', listItemComentar(comentar));
+            bindCommentActions(); // ← dipanggil setelah komentar baru
         } catch (error) {
             return `Error : ${error.message}`;
         } finally {
@@ -170,7 +171,6 @@ const bindCommentActions = () => {
         }
     });
 
-    // click prev & next
     let currentPage = 1;
     let itemsPerPage = 4;
     let startIndex = 0;
@@ -185,10 +185,9 @@ const bindCommentActions = () => {
         try {
             const response = await comentarService.getComentar();
             const {comentar} = response;
-
             comentar.reverse();
-
             renderElement(comentar.slice(startIndex, endIndex), containerComentar, listItemComentar);
+            bindCommentActions(); // ← dipanggil setelah ganti halaman
             pageNumber.textContent = currentPage.toString();
         } catch (error) {
             console.log(error);
@@ -196,7 +195,7 @@ const bindCommentActions = () => {
             prevButton.disabled = false;
             nextButton.disabled = false;
         }
-    }
+    };
 
     nextButton.addEventListener('click', async () => {
         if (endIndex <= lengthComentar) {
