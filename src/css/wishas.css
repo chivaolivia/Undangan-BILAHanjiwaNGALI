@@ -210,3 +210,24 @@
     right: 0;
     bottom: -15rem;
 }
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0;
+    font-family: inherit;
+    transition: color 0.2s;
+}
+
+.like-btn:hover { color: #e74c3c; }
