@@ -6,7 +6,7 @@ import {
     getCurrentDateTime,
     renderElement
 } from "../utils/helper.js";
-import {data} from "../assets/data/data.js";
+import {data} from "../assets/data/data.js?v=4";
 import {comentarService} from "../services/comentarService.js";
 
 export const wishas = () => {
