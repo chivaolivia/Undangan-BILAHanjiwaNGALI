@@ -46,7 +46,7 @@ export const data = {
     },
     link: {
         calendar: 'https://calendar.app.google/sRdE6DMcLrarXtYX7',
-        map: 'https://maps.app.goo.gl/99Cab42rfQxUj5HT6',
+        map: 'https://maps.google.com/?q=Auditorium+UPN+Veteran+Yogyakarta',
     },
     galeri: [
         { id: 1, image: 'src/assets/images/1.jpeg' },
@@ -95,7 +95,7 @@ story: [
 address: {
     name: 'Rumah Mempelai Wanita',
     detail: 'Jalan Kembang Madurejo Nomor.61, RT. 03, RW. 01, Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta, Kode Pos 55572',
-    map: 'https://maps.app.goo.gl/PUPUbFor6Z1Kf7D36'
+    map: 'https://maps.google.com/?q=Bilah+Home+Kembang'
 },
     audio: 'src/assets/audio/wedding.mp3',
     api: 'https://script.google.com/macros/s/AKfycbyt6Ulgbfrmm9pisIlLKnt_GdL-ozqDoaAOozU4csb1I044sZ-QKnQi1YZ1XpUCCdtNWw/exec',
