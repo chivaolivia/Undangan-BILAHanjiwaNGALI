@@ -82,23 +82,43 @@ export const wishas = () => {
             date = `${newDate.days} hari, ${newDate.hours} jam yang lalu`;
         }
 
+        const replies = data.replies || [];
+        const repliesHTML = replies.map(reply => `
+    <article class="reply-item">
+        <span class="reply-avatar" style="background-color:${reply.color}">${reply.name.charAt(0).toUpperCase()}</span>
+        <span class="reply-content">
+            <strong class="reply-name">${formattedName(reply.name)}</strong>
+            <span class="reply-message">${reply.message}</span>
+        </span>
+    </article>
+`).join('');
+
         return `<li data-id="${data.id}" data-aos="zoom-in" data-aos-duration="1000">
-            <div style="background-color: ${data.color}">${data.name.charAt(0).toUpperCase()}</div>
+            <div class="comentar-avatar" style="background-color: ${data.color}">${data.name.charAt(0).toUpperCase()}</div>
             <div class="comentar-body">
                 <h4>${name}</h4>
                 <p>${date} <br>${data.status}</p>
                 <p>${data.message}</p>
                 <div class="comment-actions">
                     <button class="like-btn" data-id="${data.id}" data-likes="${data.likes || 0}">
-                        <i class='bx bx-heart'></i>
-                        <span>${data.likes || 0}</span>
+                        <i class='bx bx-heart'></i><span>${data.likes || 0}</span>
+                    </button>
+                    <button class="reply-toggle-btn" data-id="${data.id}">
+                        <i class='bx bx-reply'></i> Balas
                     </button>
                 </div>
+                <div class="reply-form" id="reply-form-${data.id}">
+                    <input type="text" class="reply-name-input" placeholder="Nama kamu"/>
+                    <textarea class="reply-msg-input" placeholder="Tulis balasan..." rows="2"></textarea>
+                    <button class="reply-submit-btn" data-id="${data.id}">Kirim</button>
+                </div>
+                <div class="replies-list">${repliesHTML}</div>
             </div>
         </li>`;
     };
 
     const bindCommentActions = () => {
+        // Like
         containerComentar.querySelectorAll('.like-btn').forEach(btn => {
             btn.addEventListener('click', async () => {
                 const id = btn.dataset.id;
@@ -113,6 +133,56 @@ export const wishas = () => {
                 } catch(e) {}
             });
         });
+
+        // Toggle reply form
+        containerComentar.querySelectorAll('.reply-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const replyForm = document.getElementById(`reply-form-${btn.dataset.id}`);
+                replyForm.classList.toggle('active');
+            });
+        });
+
+        // Submit reply
+        containerComentar.querySelectorAll('.reply-submit-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.id;
+                const replyForm = document.getElementById(`reply-form-${id}`);
+                const nameVal = replyForm.querySelector('.reply-name-input').value.trim();
+                const msgVal = replyForm.querySelector('.reply-msg-input').value.trim();
+                if (!nameVal || !msgVal) return;
+
+                btn.textContent = '...';
+                btn.disabled = true;
+
+                const reply = {
+                    name: nameVal,
+                    message: msgVal,
+                    date: getCurrentDateTime(),
+                    color: generateRandomColor()
+                };
+
+                try {
+                    await comentarService.addReply(id, reply);
+                    const repliesList = replyForm.nextElementSibling;
+repliesList.innerHTML += `
+    <article class="reply-item">
+        <span class="reply-avatar" style="background-color:${reply.color}">${reply.name.charAt(0).toUpperCase()}</span>
+        <span class="reply-content">
+            <strong class="reply-name">${formattedName(reply.name)}</strong>
+            <span class="reply-message">${reply.message}</span>
+        </span>
+    </article>`;
+                    replyForm.querySelector('.reply-name-input').value = '';
+                    replyForm.querySelector('.reply-msg-input').value = '';
+                    replyForm.classList.remove('active');
+                } catch(e) {
+                    console.log(e);
+                } finally {
+                    btn.textContent = 'Kirim';
+                    btn.disabled = false;
+                }
+            });
+        });
     };
 
     let lengthComentar;
@@ -125,19 +195,16 @@ export const wishas = () => {
         try {
             const response = await comentarService.getComentar();
             const {comentar} = response;
-
             lengthComentar = comentar.length;
             comentar.reverse();
 
-            if (comentar.length > 0) {
-                peopleComentar.textContent = `${comentar.length} Orang telah mengucapkan`;
-            } else {
-                peopleComentar.textContent = `Belum ada yang mengucapkan`;
-            }
+            peopleComentar.textContent = comentar.length > 0
+                ? `${comentar.length} Orang telah mengucapkan`
+                : `Belum ada yang mengucapkan`;
 
             pageNumber.textContent = '1';
             renderElement(comentar.slice(startIndex, endIndex), containerComentar, listItemComentar);
-            bindCommentActions(); // ← dipanggil setelah render
+            bindCommentActions();
         } catch (error) {
             return `Error : ${error.message}`;
         }
@@ -146,7 +213,6 @@ export const wishas = () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         buttonForm.textContent = 'Loading...';
-
         const comentar = {
             id: generateRandomId(),
             name: e.target.name.value,
@@ -155,14 +221,13 @@ export const wishas = () => {
             date: getCurrentDateTime(),
             color: generateRandomColor(),
         };
-
         try {
             const response = await comentarService.getComentar();
             await comentarService.addComentar(comentar);
             lengthComentar = response.comentar.length;
             peopleComentar.textContent = `${++response.comentar.length} Orang telah mengucapkan`;
             containerComentar.insertAdjacentHTML('afterbegin', listItemComentar(comentar));
-            bindCommentActions(); // ← dipanggil setelah komentar baru
+            bindCommentActions();
         } catch (error) {
             return `Error : ${error.message}`;
         } finally {
@@ -181,13 +246,12 @@ export const wishas = () => {
         pageNumber.textContent = '..';
         prevButton.disabled = true;
         nextButton.disabled = true;
-
         try {
             const response = await comentarService.getComentar();
             const {comentar} = response;
             comentar.reverse();
             renderElement(comentar.slice(startIndex, endIndex), containerComentar, listItemComentar);
-            bindCommentActions(); // ← dipanggil setelah ganti halaman
+            bindCommentActions();
             pageNumber.textContent = currentPage.toString();
         } catch (error) {
             console.log(error);
