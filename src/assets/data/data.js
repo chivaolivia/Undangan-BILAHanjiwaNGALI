@@ -98,7 +98,7 @@ address: {
     map: 'https://maps.google.com/?q=Bilah+Home+Kembang'
 },
     audio: 'src/assets/audio/wedding.mp3',
-    api: 'https://script.google.com/macros/s/AKfycbwuD4Ed0VJdvv-0_InU3_sdgsxZgG6D4jFrsT2Rlq4UExk7w5dBRtqNAHRejzePBJPPQA/exec',
+    api: 'https://script.google.com/macros/s/AKfycbylql7yo6WEMCQrTiN_tC2QXzlh60vI4ij2tBIwqC0EtEi-XyXQfx634q1OLsH7z7dUKA/exec',
     navbar: [
         { id: 1, teks: 'Home', icon: 'bx bxs-home-heart', path: '#home' },
         { id: 2, teks: 'Mempelai', icon: 'bx bxs-group', path: '#bride' },
