@@ -87,8 +87,8 @@ story: [
         {
             id: 2,
             name: 'Chiva Olivia',
-            icon: 'src/assets/images/bri.png',
-            rekening: '155801003444504'
+            icon: 'src/assets/images/bni.png',
+            rekening: '1379227300'
         },
 	
     ],
