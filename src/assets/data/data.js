@@ -6,7 +6,7 @@ export const data = {
             child: 'Putri ke 2',
             father: 'Letda POM (Purn) Ong Muraza Bilah, S.H.',
             mother: 'Yosephiene Marieanna Purukan',
-            image: 'src/assets/images/foto_chiva.jpeg',
+            image: 'src/assets/images/foto_chiva1.png',
 			address: 'Dusun Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta'
 			
         },
@@ -16,10 +16,10 @@ export const data = {
             child: 'Putra ke 2',
             father: 'Nasrip',
             mother: 'Suwarni',
-            image: 'src/assets/images/test.jpeg',
+            image: 'src/assets/images/foto_ngali.png',
 			address: 'Dusun Toyo, Waruk Kalong, Kec. Kwadungan, Kabupaten Ngawi, Jawa Timur'
         },
-        couple: 'src/assets/images/foto_karikatur.png'
+        couple: 'src/assets/images/cover1.png'
     },
     time: {
         marriage: {
@@ -49,11 +49,11 @@ export const data = {
         map: 'https://maps.google.com/?q=Auditorium+UPN+Veteran+Yogyakarta',
     },
     galeri: [
-        { id: 1, image: 'src/assets/images/1.jpeg' },
-        { id: 2, image: 'src/assets/images/2.jpeg' },
-        { id: 3, image: 'src/assets/images/3.jpeg' },
-        { id: 4, image: 'src/assets/images/4.jpeg' },
-        { id: 5, image: 'src/assets/images/5.jpeg' }
+        { id: 1, image: 'src/assets/images/1_1.jpg' },
+		{ id: 2, image: 'src/assets/images/3.jpeg' },
+        { id: 3, image: 'src/assets/images/2_2.png' },
+		{ id: 4, image: 'src/assets/images/2_1.jpg' },
+        { id: 5, image: 'src/assets/images/4.jpeg' },
     ],
 story: [
     {
@@ -65,6 +65,7 @@ story: [
         description: 'Alhamdulillah, Allah meridhoi perjalanan kasih kami. Kami siap melangkah ke jenjang pernikahan. Tanpa pacaran, tanpa kata-kata puitis yang berlebihan, kami menyepakati bahwa cinta tidak selalu harus meledak-ledak diawal,dari sebuah  foto yang ditunjukan di tempat kerja, berakhir menjadi janji suci di depan penghulu.'
     }
 ],
+
     bank: [
         {
             id: 1,
