@@ -57,20 +57,8 @@ export const data = {
     ],
 story: [
     {
-        title: 'Bagian Satu',
+        title: 'Takdir',
         description: 'Kisah tentang bagaimana takdir bekerja dengan cara yang paling tenang, namun paling pasti. Sebuah perjalanan yang tidak dimulai dengan debar jantung yang hebat, melainkan dengan restu yang mengalir begitu saja.'
-    },
-    {
-        title: 'Harapan',
-        description: 'Perkenalan kami  bermula dari Om Chiva, seorang pria yang kasih sayangnya kepada keponakannya melampaui kata-kata. Hingga suatu hari, Chiva berangkat Umroh. Di bawah langit Mekkah yang teduh, ia bersimpuh meminta yang terbaik bagi masa depannya.'
-    },
-    {
-        title: 'Membuka Pintu Komunikasi',
-        description: 'Di saat yang bersamaan, ribuan kilometer jauhnya, di sebuah acara, Ngali duduk tepat di sebelah Om Chiva. Tanpa direncanakan, momen  itu tiba hari itu juga. Foto Chiva ditunjukan kepada Ngali dengan keberanian yang tenang, yang akhirnya membuka pintu komunikasi kami.'
-    },
-    {
-        title: 'Komunikasi dan Ketegasan',
-        description: 'Kami mulai bertukar pesan. Tidak ada rayuan maut, tidak ada percakapan intens,hanya komunikasi dua orang dewasa yang saling menjajaki dalam ritme yang sangat santai. Momen Lebaran membuat ketegasan takdir diuji saat Idul Fitri tiba kami memutuskan untuk bertemu secara langsung untuk pertama kalinya. Pertemuan itu singkat namun hangat, Akhirnya restu kedua orang tua sudah di tangan, untuk apa lagi menunggu?  Kami sepakat memutuskan menuju garis finis yang sesungguhnya: "Pernikahan."'
     },
     {
         title: 'Menuju Pelaminan',
