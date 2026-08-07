@@ -49,11 +49,12 @@ export const data = {
         map: 'https://maps.google.com/?q=Auditorium+UPN+Veteran+Yogyakarta',
     },
     galeri: [
-        { id: 1, image: 'src/assets/images/1_1.jpg' },
-		{ id: 2, image: 'src/assets/images/3.jpeg' },
-        { id: 3, image: 'src/assets/images/2_2.png' },
-		{ id: 4, image: 'src/assets/images/2_1.jpg' },
-        { id: 5, image: 'src/assets/images/4.jpeg' },
+        { id: 1, image: 'src/assets/images/1.jpg' },
+		{ id: 2, image: 'src/assets/images/2.jpg' },
+        { id: 3, image: 'src/assets/images/3.jpg' },
+		{ id: 4, image: 'src/assets/images/4.jpg' },
+        { id: 5, image: 'src/assets/images/5.jpg' },
+		{ id: 6, image: 'src/assets/images/6.jpg' },
     ],
 story: [
     {
