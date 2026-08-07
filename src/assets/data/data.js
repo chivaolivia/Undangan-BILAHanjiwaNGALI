@@ -6,7 +6,7 @@ export const data = {
             child: 'Putri ke 2',
             father: 'Letda POM (Purn) Ong Muraza Bilah, S.H.',
             mother: 'Yosephiene Marieanna Purukan',
-            image: 'src/assets/images/foto_chiva1.png',
+            image: 'src/assets/images/foto_chiva1.jpg',
 			address: 'Dusun Kembang, Madurejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta'
 			
         },
@@ -16,7 +16,7 @@ export const data = {
             child: 'Putra ke 2',
             father: 'Nasrip',
             mother: 'Suwarni',
-            image: 'src/assets/images/foto_ngali.png',
+            image: 'src/assets/images/foto_ngali.jpg',
 			address: 'Dusun Toyo, Waruk Kalong, Kec. Kwadungan, Kabupaten Ngawi, Jawa Timur'
         },
         couple: 'src/assets/images/cover1.png'
